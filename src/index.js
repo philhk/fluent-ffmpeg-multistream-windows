@@ -11,7 +11,7 @@ class UnixStream {
       const pipeName = `node-webrtc.${++counter}.sock`;
 
       socketPath = path.join(pipePrefix, pipeName);
-      this.url = sockpath;
+      this.url = socketPath;
     }
     else {
       socketPath = './' + (++counter) + '.sock'
