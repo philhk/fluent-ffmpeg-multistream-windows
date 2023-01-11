@@ -5,17 +5,17 @@ const path = require('path');
 var counter = 0
 class UnixStream {
   constructor (stream, onSocket) {
-    var sockpath = '';
+    var socketPath = '';
     if (process.platform === 'win32') {
       const pipePrefix = '\\\\.\\pipe\\';
       const pipeName = `node-webrtc.${++counter}.sock`;
 
-      sockpath = path.join(pipePrefix, pipeName);
+      socketPath = path.join(pipePrefix, pipeName);
       this.url = sockpath;
     }
     else {
-      sockpath = './' + (++counter) + '.sock'
-      this.url = 'unix:' + sockpath
+      socketPath = './' + (++counter) + '.sock'
+      this.url = 'unix:' + socketPath
     }
 
     try {
